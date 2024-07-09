@@ -241,7 +241,7 @@ save_ani=True,save_criteria=True):
     ani = FuncAnimation(fig1, update, frames=range(len(history_C)), interval=200, blit=True)
 
     if save_ani == True:
-        ani.save('Histoty_Elayers.gif')
+        ani.save('Distribution_conversion_log/Histoty_Elayers.gif')
 
     # Fitness over generations
     generations = np.arange(len(history_f_best)) 
@@ -259,7 +259,7 @@ save_ani=True,save_criteria=True):
     criteria=Dynamic_bp_loop(Net,optimized_C,Loaders,N_elayers,cycles,epochs,lr,weight_decay)
 
     if save_criteria == True:
-        np.savetxt('DPHT_results.csv',criteria,delimiter=',')
+        np.savetxt('Distribution_conversion_log/DPHT_results.csv',criteria,delimiter=',')
 
     channels, steps = criteria.shape
     x = np.arange(steps)  
@@ -355,14 +355,14 @@ if __name__ == '__main__':
     '''Hyperparameters'''
     e_layers=5 # Be fixed after constructed the electronic learning network
 
-    CE_cycles=3 # CE and BP cycles of DPHT  
+    CE_cycles=7 # CE and BP cycles of DPHT  
 
-    CE_epochs=3 
+    CE_epochs=2 
 
-    CE_batch=32
+    CE_batch=64
 
     # After CE/BP, It is possible to continue the BP process after stopping CE to further reduce the loss
-    Bp_cycles=10 
+    Bp_cycles=30 
 
     Bp_epochs=1 
 
@@ -378,7 +378,7 @@ if __name__ == '__main__':
     '''Dynamic physical hypothesis training'''
     Net=SEA_Net().to('cuda')
 
-    CE_res,CE_trace=CE_loop(Net,CE_Loaders,e_layers,Bp_loop,cycles=CE_cycles,epochs=CE_epochs) 
+    CE_res,CE_trace=CE_loop(Net,CE_Loaders,e_layers,Bp_loop,cycles=CE_cycles,epochs=CE_epochs,dirName='Distribution_conversion_log') 
 
     Res_show(CE_res,CE_trace,Net,BP_Loaders,e_layers,cycles=Bp_cycles,epochs=Bp_epochs,lr=lr)
 

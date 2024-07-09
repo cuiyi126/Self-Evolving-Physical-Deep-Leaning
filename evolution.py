@@ -96,7 +96,7 @@ def reset_weights(model):
        if hasattr(layer, 'reset_parameters'):     
            layer.reset_parameters() 
 
-def CE_loop(Net,Loaders,N_elayers,Bp_loop,cycles=10,epochs=10):
+def CE_loop(Net,Loaders,N_elayers,Bp_loop,cycles=10,epochs=10,dirName=None):
     '''
     This function defines the evolution algorithm and optimization.
 
@@ -106,12 +106,12 @@ def CE_loop(Net,Loaders,N_elayers,Bp_loop,cycles=10,epochs=10):
     CE_problem=Condition_evolution(Net,Loaders,N_elayers,Bp_loop,cycles=cycles,epochs=epochs)
 
     CE_model=ea.soea_SEGA_templet(CE_problem,
-                                ea.Population(Encoding='BG',NIND=10),
-                                MAXGEN=10, 
+                                ea.Population(Encoding='BG',NIND=8),
+                                MAXGEN=8, 
                                 maxTrappedCount=8,
                                 logTras=1)
 
-    CE_res=ea.optimize(CE_model,seed=None,verbose=True,drawing=0,drawLog=False)
+    CE_res=ea.optimize(CE_model,seed=None,verbose=True,drawing=0,drawLog=False,dirName=dirName)
 
     CE_trace=CE_model.trace
 

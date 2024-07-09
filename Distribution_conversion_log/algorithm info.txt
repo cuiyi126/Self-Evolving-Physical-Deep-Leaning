@@ -1,1 +1,1 @@
-{'Algorithm Name': 'SEGA', 'Algorithm MAXGEN': 10, 'Algorithm MAXTIME': None, 'Algorithm MAXEVALS': None, 'Algorithm trappedValue': 0, 'Algorithm maxTrappedCount': 8}
+{'Algorithm Name': 'SEGA', 'Algorithm MAXGEN': 8, 'Algorithm MAXTIME': None, 'Algorithm MAXEVALS': None, 'Algorithm trappedValue': 0, 'Algorithm maxTrappedCount': 8}
