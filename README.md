@@ -5,7 +5,7 @@ Emerging deep-learning hardware accelerators based on physical substrates show p
 
 In contrast, the human brain performs high-capacity and flexible computing through evolved neurons that exhibit diversity and heterogeneity, demonstrating remarkable memory and ultra-low processing power—capabilities absent in current accelerators and their algorithms. For example, biological memory is always reconstructed rather than merely stored in specific neurons.
 
-We introduce a self-evolving physical deep learning (SEA) architecture, which incorporates dynamic nonlinearities of arbitrary reconfigurable nanoelectronics.
+We introduce a self-evolving physical deep learning (SEA) architecture, which incorporates dynamic nonlinearities of  reconfigurable nanoelectronics.
 
 # Basic Example
  Here we provide a prototype example of SEA, which embeds different dataflows in situ into the nonlinear channels of nanoelectronic devices for flexible output distribution conversion. 
